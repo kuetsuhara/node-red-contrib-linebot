@@ -5,7 +5,8 @@
         defaults: {
             name: {value:""},
             channelAccessToken:{value:""},
-            channelSecret:{value:""}
+            channelSecret:{value:""},
+            replyMessage:{value:"Hello!"}
         },
         inputs:1,
         outputs:1,
@@ -22,14 +23,17 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> AccessToken</label>
+        <label for="node-input-channelAccessToken"><i class="icon-tag"></i> AccessToken</label>
         <input type="text" id="node-input-channelAccessToken" placeholder="ChannelAccessToken">
     </div>
     <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Secret</label>
+        <label for="node-input-channelSecret"><i class="icon-tag"></i> Secret</label>
         <input type="text" id="node-input-channelSecret" placeholder="ChannelSecret">
     </div>
-
+    <div class="form-row">
+        <label for="node-input-replyMessage"><i class="icon-tag"></i> ReplyMessage</label>
+        <input type="text" id="node-input-replyMessage" placeholder="ReplyMessage">
+    </div>
 
 </script>
 
