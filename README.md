@@ -7,4 +7,6 @@ Linebot for Node-RED
 * require https!!
 
 ## Installation
+```
 npm install node-red-contrib-linebot
+```
