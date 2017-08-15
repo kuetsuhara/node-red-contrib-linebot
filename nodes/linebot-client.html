@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('linebot-client',{
+        category: 'Line',
+        color: '#5ae628',
+        defaults: {
+            name: {value:""},
+            channelAccessToken:{value:""},
+            channelSecret:{value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "light.png",
+        label: function() {
+            return this.name||"linebot-client";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="linebot-client">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-channelAccessToken"><i class="icon-tag"></i> AccessToken</label>
+        <input type="text" id="node-input-channelAccessToken" placeholder="ChannelAccessToken">
+    </div>
+    <div class="form-row">
+        <label for="node-input-channelSecret"><i class="icon-tag"></i> Secret</label>
+        <input type="text" id="node-input-channelSecret" placeholder="ChannelSecret">
+    </div>
+
+</script>
+
+<script type="text/x-red" data-help-name="linebot-client">
+    <p>return LINE SDK client & Line event</p>
+</script>

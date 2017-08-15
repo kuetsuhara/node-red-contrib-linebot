@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('line-bot',{
-        category: 'function',
+    RED.nodes.registerType('linebot-reply',{
+        category: 'Line',
         color: '#5ae628',
         defaults: {
             name: {value:""},
@@ -12,12 +12,12 @@
         outputs:1,
         icon: "light.png",
         label: function() {
-            return this.name||"line-bot";
+            return this.name||"linebot-reply";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="line-bot">
+<script type="text/x-red" data-template-name="linebot-reply">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -37,6 +37,6 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="line-bot">
-    <p>A simple node that converts the message payloads into all lower-case characters</p>
+<script type="text/x-red" data-help-name="linebot-reply">
+    <p>reply text message</p>
 </script>

@@ -11,7 +11,8 @@
   },
   "node-red" : {
     "nodes": {
-      "line-bot": "node.js"
+      "linebot-reply": "./nodes/linebot-reply.js",
+      "linebot-client": "./nodes/linebot-client.js"
     }
   },
   "repository": {

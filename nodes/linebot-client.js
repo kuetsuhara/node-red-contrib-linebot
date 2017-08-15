@@ -2,7 +2,7 @@ module.exports = function(RED) {
 
     const line = require('@line/bot-sdk');
     
-    function LineBotNode(config) {
+    function LinebotClientNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         // line設定作成
@@ -18,14 +18,10 @@ module.exports = function(RED) {
             // get message
             const received_msg = line_event.message.text;
 
-            // create reply
-            var massage = { type: 'text', text: config.replyMessage };
-            client.replyMessage(line_event.replyToken, massage);
-
             var values = [client, line_event];
             msg.payload = values;
             node.send(msg);
         });
     }
-    RED.nodes.registerType("line-bot",LineBotNode);
+    RED.nodes.registerType("linebot-client",LinebotClientNode);
 }
