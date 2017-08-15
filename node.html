@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    RED.nodes.registerType('line-bot',{
+        category: 'function',
+        color: '#5ae628',
+        defaults: {
+            name: {value:""},
+            channelAccessToken:{value:""},
+            channelSecret:{value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "light.png",
+        label: function() {
+            return this.name||"line-bot";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="line-bot">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> AccessToken</label>
+        <input type="text" id="node-input-channelAccessToken" placeholder="ChannelAccessToken">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Secret</label>
+        <input type="text" id="node-input-channelSecret" placeholder="ChannelSecret">
+    </div>
+
+
+</script>
+
+<script type="text/x-red" data-help-name="line-bot">
+    <p>A simple node that converts the message payloads into all lower-case characters</p>
+</script>
