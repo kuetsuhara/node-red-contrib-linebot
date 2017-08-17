@@ -1,22 +1,24 @@
 <script type="text/javascript">
-    RED.nodes.registerType('linebot-client',{
+    RED.nodes.registerType('linebot-reply-sticker',{
         category: 'Line',
         color: '#5ae628',
         defaults: {
             name: {value:""},
             channelAccessToken:{value:""},
-            channelSecret:{value:""}
+            channelSecret:{value:""},
+            stickerPackageID:{value:"1"},
+            stickerID:{value:"1"}
         },
         inputs:1,
         outputs:1,
         icon: "light.png",
         label: function() {
-            return this.name||"linebot-client";
+            return this.name||"linebot-reply-sticker";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="linebot-client">
+<script type="text/x-red" data-template-name="linebot-reply-sticker">
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -29,9 +31,17 @@
         <label for="node-input-channelSecret"><i class="icon-tag"></i> Secret</label>
         <input type="text" id="node-input-channelSecret" placeholder="ChannelSecret">
     </div>
+    <div class="form-row">
+        <label for="node-input-stickerPackageID"><i class="icon-tag"></i> stickerPackageID</label>
+        <input type="text" id="node-input-stickerPackageID" placeholder="StickerPackageID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-stickerID"><i class="icon-tag"></i> stickerID</label>
+        <input type="text" id="node-input-stickerID" placeholder="StickerID">
+    </div>
 
 </script>
 
-<script type="text/x-red" data-help-name="linebot-client">
-    <p>JSONをインプットすると、その内容で返答をします。JSON形式はLINEBotのドキュメントを御覧ください。</p>
+<script type="text/x-red" data-help-name="linebot-reply-sticker">
+    <p>指定したステッカーで返信</p>
 </script>

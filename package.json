@@ -12,6 +12,7 @@
   "node-red" : {
     "nodes": {
       "linebot-reply": "./nodes/linebot-reply.js",
+      "linebot-reply-sticker": "./nodes/linebot-reply-sticker.js",
       "linebot-client": "./nodes/linebot-client.js"
     }
   },

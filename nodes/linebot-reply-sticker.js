@@ -2,15 +2,15 @@ module.exports = function(RED) {
 
     const line = require('@line/bot-sdk');
     
-    function LinebotClientNode(config) {
+    function LinebotReplyStickerNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
-        // line設定作成
+        
         const lineconfig = {
             channelAccessToken: config.channelAccessToken,
             channelSecret: config.channelSecret
         }
-        // lineクライアント作成
+    
         const client = new line.Client(lineconfig);
         node.on('input', function(msg) {
 
@@ -20,9 +20,11 @@ module.exports = function(RED) {
             const line_event = msg.payload.events[0];
             // get message
             const received_msg = line_event.message.text;
-
+            node.warn("hey!");
+            node.warn(config.stickerPackageID);
+            node.warn(config.stickerID);
             // create reply
-            var massage = msg.payload;
+            var massage = { type: 'sticker', packageId: config.stickerPackageID, stickerId:config.stickerID };
             var result = client.replyMessage(line_event.replyToken, massage);
 
             // var values = [client, line_event];
@@ -31,5 +33,5 @@ module.exports = function(RED) {
             node.send(msg);
         });
     }
-    RED.nodes.registerType("linebot-client",LinebotClientNode);
+    RED.nodes.registerType("linebot-reply-sticker",LinebotReplyStickerNode);
 }
