@@ -20,9 +20,6 @@ module.exports = function(RED) {
             const line_event = msg.payload.events[0];
             // get message
             const received_msg = line_event.message.text;
-            node.warn("hey!");
-            node.warn(config.stickerPackageID);
-            node.warn(config.stickerID);
             // create reply
             var massage = { type: 'sticker', packageId: config.stickerPackageID, stickerId:config.stickerID };
             var result = client.replyMessage(line_event.replyToken, massage);
