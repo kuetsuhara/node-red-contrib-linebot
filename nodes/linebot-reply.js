@@ -20,11 +20,9 @@ module.exports = function(RED) {
 
             // create reply
             var massage = { type: 'text', text: config.replyMessage };
-            client.replyMessage(line_event.replyToken, massage);
+            var result = client.replyMessage(line_event.replyToken, massage);
 
-            var values = [client, line_event];
-            msg.payload = values;
-            node.send(msg);
+            node.send(result);
         });
     }
     RED.nodes.registerType("linebot-reply",LinebotReplyNode);
