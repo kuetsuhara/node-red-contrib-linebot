@@ -14,8 +14,6 @@ module.exports = function(RED) {
         const client = new line.Client(lineconfig);
         node.on('input', function(msg) {
 
-            node.warn(msg.payload);
-
             // get line event
             const line_event = msg.payload.events[0];
             // get message

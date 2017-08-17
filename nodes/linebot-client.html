@@ -34,4 +34,10 @@
 
 <script type="text/x-red" data-help-name="linebot-client">
     <p>コールバックで受けたメッセージと、返信用JSONをインプットするとその内容で返答をします。JSON形式はLINEBotのドキュメントを御覧ください。</p>
+    <p>コールバックノードとクライアントノードの間にfunctionノードを作り、以下のようにすると動きます。</p>
+    <p>var receive_message = msg.payload;<br>
+        var reply = {type:'text', text:'message!'};<br>
+        var values = [receive_message,reply];<br>
+        msg.payload = values;<br>
+        return msg;</p>
 </script>

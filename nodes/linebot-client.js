@@ -14,12 +14,8 @@ module.exports = function(RED) {
         const client = new line.Client(lineconfig);
         node.on('input', function(msg) {
 
-            node.warn(msg.payload);
-
             var line_message = msg.payload[0];
             var reply_json = msg.payload[1];
-            node.warn(line_message);
-            node.warn(reply_json);
 
             // get line event
             const line_event = line_message.events[0];
