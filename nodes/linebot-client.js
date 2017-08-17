@@ -5,21 +5,29 @@ module.exports = function(RED) {
     function LinebotClientNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
-        // lineÀßÄêºîÀ®
+        // lineè¨­å®šä½œæˆ
         const lineconfig = {
             channelAccessToken: config.channelAccessToken,
             channelSecret: config.channelSecret
         }
-        // line¥¯¥é¥¤¥¢¥ó¥ÈºîÀ®
+        // lineã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆä½œæˆ
         const client = new line.Client(lineconfig);
         node.on('input', function(msg) {
+
+            node.warn(msg.payload);
+
             // get line event
             const line_event = msg.payload.events[0];
             // get message
             const received_msg = line_event.message.text;
 
-            var values = [client, line_event];
-            msg.payload = values;
+            // create reply
+            var massage = { type: 'text', text: msg.payload };
+            var result = client.replyMessage(line_event.replyToken, massage);
+
+            // var values = [client, line_event];
+            msg.payload = result;
+
             node.send(msg);
         });
     }

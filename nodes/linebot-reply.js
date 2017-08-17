@@ -5,12 +5,12 @@ module.exports = function(RED) {
     function LinebotReplyNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
-        // lineÀßÄêºîÀ®
+        // lineè¨­å®šä½œæˆ
         const lineconfig = {
             channelAccessToken: config.channelAccessToken,
             channelSecret: config.channelSecret
         }
-        // line¥¯¥é¥¤¥¢¥ó¥ÈºîÀ®
+        // lineã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆä½œæˆ
         const client = new line.Client(lineconfig);
         node.on('input', function(msg) {
             // get line event
